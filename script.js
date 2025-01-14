@@ -256,3 +256,10 @@ function mostrarEfectoEscritura(texto) {
         block = "";
     }
 }
+
+const handIndicator = document.getElementById('hand-indicator');
+
+// Detectar clic en el mazo
+mazo.addEventListener('click', () => {
+    handIndicator.style.display = 'none'; // Ocultar el dedo
+});

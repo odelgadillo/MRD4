@@ -64,3 +64,33 @@ input {
 #instruccion:empty {
     display: none;
 }
+
+/* Estilo del indicador de mano */
+#hand-indicator {
+    width: 60px;
+    height: 60px;
+    background-image: url('https://cdn-icons-png.flaticon.com/512/3162/3162514.png'); /* Ícono de mano */
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom: 35%;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: touchEffect 1.3s infinite ease-in-out;
+    z-index: 2;
+}
+
+/* Animación de toque */
+@keyframes touchEffect {
+    0% {
+        transform: translateX(-50%) translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) translateY(10px) scale(1.2);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateX(-50%) translateY(0) scale(1);
+        opacity: 1;
+    }
+}
