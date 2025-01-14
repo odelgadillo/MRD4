@@ -1,4 +1,4 @@
-const puntajeGanador = 5;
+let puntajeGanador = 5;
 const segundosParaResponder = 3;
 
 // Selección de elementos
@@ -72,6 +72,17 @@ function renderPlayerScores() {
     playerScoresContainer.appendChild(ul);
 }
 
+// Escucha los cambios en el input de puntaje ganador
+const puntajeGanadorInput = document.getElementById('puntaje-ganador');
+puntajeGanadorInput.addEventListener('input', () => {
+    const nuevoValor = parseInt(puntajeGanadorInput.value, 10);
+    if (!isNaN(nuevoValor) && nuevoValor > 0) {
+        puntajeGanador = nuevoValor; // Actualiza el valor global
+    } else {
+        puntajeGanadorInput.value = puntajeGanador; // Mantén el valor actual si la entrada no es válida
+    }
+});
+
 // Iniciar el juego
 startPlayButton.addEventListener('click', () => {
     players = []; // Reiniciar jugadores
@@ -133,9 +144,7 @@ function updatePlayerScore(playerIndex, points) {
 function checkForWinner() {
     const winner = players.find(player => player.score >= puntajeGanador);
     if (winner) {
-        //alert(`¡El mejor amigo es... ${winner.name}! 🎉`);
         showWinnerMessage(winner);
-        //resetGame(); // Reiniciar juego o mostrar pantalla final
     }
 }
 
