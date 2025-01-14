@@ -11,7 +11,23 @@ const addPlayerButton = document.getElementById('add-player');
 const startPlayButton = document.getElementById('start-play');
 const instruccionElem = document.getElementById('instruccion');
 
+const instructionsBtn = document.querySelector('#welcome button:first-of-type');
+const backToWelcomeBtn = document.getElementById('back-to-welcome');
+const instructionsSection = document.getElementById('instructions');
+
 let players = []; // Almacenará los nombres de los jugadores
+
+// Mostrar las instrucciones
+instructionsBtn.addEventListener('click', () => {
+    welcomeSection.classList.remove('active');
+    instructionsSection.classList.add('active');
+});
+
+// Regresar a la página de bienvenida
+backToWelcomeBtn.addEventListener('click', () => {
+    instructionsSection.classList.remove('active');
+    welcomeSection.classList.add('active');
+});
 
 // Cambiar de bienvenida a configuración
 startButton.addEventListener('click', () => {
@@ -168,7 +184,7 @@ function showWinnerMessage(winner) {
     const winnerNameElem = document.getElementById('winner-name');
     winnerNameElem.textContent = winner.name;
     winnerMessageContainer.style.display = 'block';
-    gameSection.classList.remove('active'); 
+    gameSection.classList.remove('active');
     confetti();
 }
 
