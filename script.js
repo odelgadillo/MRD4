@@ -119,7 +119,7 @@ function showWinnerSelection() {
             winnerSelectionContainer.style.display = 'none'; // Ocultar botones
 
             preguntaElem.classList.remove("visible"); // Ocultar pregunta
-            instruccionElem.textContent = 'Seleccioná otra carta';
+            instruccionElem.textContent = 'Seleccioná otra carta.';
         });
         winnerButtonsContainer.appendChild(button);
     });
@@ -129,7 +129,7 @@ function showWinnerSelection() {
 
 // Temporizador finaliza
 function onTimerEnd() {
-    instruccionElem.textContent = '';
+    instruccionElem.textContent = 'Seleccioná al mas votado.';
     showWinnerSelection(); // Mostrar opciones de ganador
 }
 
