@@ -132,6 +132,7 @@ function showWinnerSelection() {
 
             preguntaElem.classList.remove("visible"); // Ocultar pregunta
             instruccionElem.textContent = 'Seleccioná otra carta.';
+            handIndicator.style.display = 'block'; // Mostrar dedo
         });
         winnerButtonsContainer.appendChild(button);
     });
