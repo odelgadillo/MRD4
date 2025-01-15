@@ -88,19 +88,15 @@ function renderPlayerScores() {
     playerScoresContainer.appendChild(ul);
 }
 
-// Escucha los cambios en el input de puntaje ganador
-const puntajeGanadorInput = document.getElementById('puntaje-ganador');
-puntajeGanadorInput.addEventListener('input', () => {
-    const nuevoValor = parseInt(puntajeGanadorInput.value, 10);
-    if (!isNaN(nuevoValor) && nuevoValor > 0) {
-        puntajeGanador = nuevoValor; // Actualiza el valor global
-    } else {
-        puntajeGanadorInput.value = puntajeGanador; // Mantén el valor actual si la entrada no es válida
-    }
-});
+// Definir el puntaje ganador
+const puntajeSelect = document.getElementById('puntaje-ganador');
+function getPuntajeGanador() {
+    return parseInt(puntajeSelect.value, 10); // Devuelve el valor como un número
+}
 
 // Iniciar el juego
 startPlayButton.addEventListener('click', () => {
+    puntajeGanador = getPuntajeGanador();
     players = []; // Reiniciar jugadores
     const inputs = playerList.querySelectorAll('input');
     inputs.forEach(input => {

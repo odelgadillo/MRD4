@@ -226,8 +226,18 @@
                 </div>
 
                 <div class="mt-3">
-                    <label for="puntaje-ganador" class="form-label">Puntaje ganador:</label>
-                    <input type="number" id="puntaje-ganador" class="form-control" value="5" min="1" />
+                    <label for="puntaje-ganador" class="form-label">Puntaje ganador</label>
+                    <select id="puntaje-ganador" class="form-select">
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5" selected>5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                    <div class="form-text">
+                        Gana el primer jugador en alcanzar este puntaje.
+                      </div>
                 </div>
 
                 <div class="d-grid gap-2 mt-4">
