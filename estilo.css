@@ -99,8 +99,10 @@ input {
 }
 
 
-#puntaje-ganador {
-    width: 100%;
+.btn-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
 
 

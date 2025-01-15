@@ -91,7 +91,8 @@ function renderPlayerScores() {
 // Definir el puntaje ganador
 const puntajeSelect = document.getElementById('puntaje-ganador');
 function getPuntajeGanador() {
-    return parseInt(puntajeSelect.value, 10); // Devuelve el valor como un número
+    const selectedPuntaje = document.querySelector('input[name="puntaje-ganador"]:checked');
+    return parseInt(selectedPuntaje.value, 10);
 }
 
 // Iniciar el juego
