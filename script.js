@@ -22,20 +22,31 @@ const clickSound = new Audio('assets/sounds/click.mp3');
 clickSound.preload = 'auto';
 clickSound.volume = 0.5;
 
+
 // Mostrar las instrucciones
 instructionsBtn.addEventListener('click', () => {
+    clickSound.play().catch(error => {
+        console.error('Error reproduciendo el sonido:', error);
+    });
     welcomeSection.classList.remove('active');
     instructionsSection.classList.add('active');
 });
 
 // Regresar a la página de bienvenida
 backToWelcomeBtn.addEventListener('click', () => {
+    clickSound.play().catch(error => {
+        console.error('Error reproduciendo el sonido:', error);
+    });
     instructionsSection.classList.remove('active');
     welcomeSection.classList.add('active');
 });
 
 // Cambiar de bienvenida a configuración
 startButton.addEventListener('click', () => {
+    clickSound.play().catch(error => {
+        console.error('Error reproduciendo el sonido:', error);
+    });
+
     welcomeSection.classList.remove('active');
     setupSection.classList.add('active');
     generateInitialFields();
@@ -70,6 +81,9 @@ function createPlayerInput(index) {
 
 // Agregar un nuevo campo de texto para registrar un jugador
 addPlayerButton.addEventListener('click', () => {
+    clickSound.play().catch(error => {
+        console.error('Error reproduciendo el sonido:', error);
+    });
     const newIndex = playerList.children.length + 1;
     createPlayerInput(newIndex);
 });
@@ -139,6 +153,9 @@ function showWinnerSelection() {
         button.textContent = player.name;
         button.className = 'btn btn-success';
         button.addEventListener('click', () => {
+            clickSound.play().catch(error => {
+                console.error('Error reproduciendo el sonido:', error);
+            });
             updatePlayerScore(index, 1); // Sumar un punto al jugador seleccionado
             winnerSelectionContainer.style.display = 'none'; // Ocultar botones
 
@@ -175,6 +192,10 @@ function checkForWinner() {
 
 // Resetear juego (puedes personalizar esto más adelante)
 function resetGame() {
+    clickSound.play().catch(error => {
+        console.error('Error reproduciendo el sonido:', error);
+    });
+    
     // Reiniciar los puntajes de los jugadores
     players = players.map(player => ({ ...player, score: 0 }));
 
@@ -212,6 +233,11 @@ const iniciarBtn = document.getElementById("iniciar");
 let temporizador;
 
 mazo.addEventListener("click", () => {
+    // Reproducir el sonido al hacer clic en el mazo
+    clickSound.play().catch(error => {
+        console.error('Error reproduciendo el sonido:', error);
+    });
+
     // Seleccionar una pregunta aleatoria
     const indice = Math.floor(Math.random() * preguntas.length);
     const preguntaSeleccionada = preguntas[indice];
@@ -234,6 +260,9 @@ mazo.addEventListener("click", () => {
 });
 
 iniciarBtn.addEventListener("click", () => {
+    clickSound.play().catch(error => {
+        console.error('Error reproduciendo el sonido:', error);
+    });
     let tiempoRestante = segundosParaResponder;
     iniciarBtn.style.display = "none";
     instruccionElem.textContent = `Señalen su respuesta en... ${tiempoRestante}`;
