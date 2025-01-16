@@ -17,6 +17,11 @@ const instructionsSection = document.getElementById('instructions');
 
 let players = []; // Almacenará los nombres de los jugadores
 
+// Crear objeto Audio para el sonido de clic
+const clickSound = new Audio('assets/sounds/click.mp3');
+clickSound.preload = 'auto';
+clickSound.volume = 0.5;
+
 // Mostrar las instrucciones
 instructionsBtn.addEventListener('click', () => {
     welcomeSection.classList.remove('active');
@@ -97,6 +102,12 @@ function getPuntajeGanador() {
 
 // Iniciar el juego
 startPlayButton.addEventListener('click', () => {
+
+    // Reproducir el sonido
+    clickSound.play().catch(error => {
+        console.error('Error reproduciendo el sonido:', error);
+    });
+
     puntajeGanador = getPuntajeGanador();
     players = []; // Reiniciar jugadores
     const inputs = playerList.querySelectorAll('input');
