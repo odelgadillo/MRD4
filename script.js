@@ -250,9 +250,6 @@ mazo.addEventListener("click", () => {
 
     setTimeout(() => { preguntaElem.classList.add("visible"); }, 100);  // Esto da un pequeño retraso antes de iniciar la animación
 
-    // Mostrar efecto de escritura
-    //mostrarEfectoEscritura(preguntaSeleccionada);
-
     // Indicar al usuario que debe leer en vos alta
     instruccionElem.textContent = `Lee en vos alta.`;
 
@@ -277,48 +274,6 @@ iniciarBtn.addEventListener("click", () => {
         }
     }, 1000);
 });
-
-// Función para mostrar el efecto de escritura
-function mostrarEfectoEscritura(texto) {
-    const theLetters = "abcdefghijklmnopqrstuvwxyz"; // Letras aleatorias
-
-    var speed = 20; // ms por frame
-    var increment = 4; // frames por paso. Debe ser > 2
-
-    let clen = texto.length;
-    let si = 0;
-    let stri = 0;
-    let block = "";
-    let fixed = "";
-
-    (function rustle(i) {
-        setTimeout(function () {
-            if (--i) { rustle(i); }
-            nextFrame(i);
-            si = si + 1;
-        }, speed); // Velocidad del efecto
-    })(clen * increment + 1);
-
-    function nextFrame(pos) {
-        for (let i = 0; i < clen - stri; i++) {
-            // Número aleatorio
-            let num = Math.floor(theLetters.length * Math.random());
-            // Letra aleatoria
-            let letter = theLetters.charAt(num);
-            block = block + letter;
-        }
-        if (si == (increment - 1)) {
-            stri++;
-        }
-        if (si == increment) {
-            // Añadir letra
-            fixed = fixed + texto.charAt(stri - 1);
-            si = 0;
-        }
-        preguntaElem.innerHTML = fixed + block; // Actualizar el contenido del div
-        block = "";
-    }
-}
 
 const handIndicator = document.getElementById('hand-indicator');
 
